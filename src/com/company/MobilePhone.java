@@ -73,6 +73,10 @@ public class MobilePhone {
         int indexOfCurrentName = contact.getIndexOfName(currentName);
         int indexOfCurrentPhoneNumber = contact.getIndexOfPhoneNumber(currentPhoneNumber);
         if (indexOfCurrentName == indexOfCurrentPhoneNumber && indexOfCurrentName >= 0 && indexOfCurrentPhoneNumber >= 0) {
+//            System.out.println("name: " + currentName);
+//            System.out.println("phone number: " + currentPhoneNumber);
+//            System.out.println("changed name: " + changedName);
+//            System.out.println("changed phone number: " + changedPhoneNumber);
             contact.modifyName(currentName, changedName);
             contact.modifyPhoneNumber(currentPhoneNumber, changedPhoneNumber);
         } else {

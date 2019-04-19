@@ -81,6 +81,10 @@ public class Main {
                     modifyName = scanner.nextLine();
                     System.out.print("Now enter the new phone number to modify: ");
                     modifyPhoneNumber = scanner.nextLine();
+//                    System.out.println("name: " + name);
+//                    System.out.println("phone number: " + phoneNumber);
+//                    System.out.println("changed name: " + modifyName);
+//                    System.out.println("changed phone number: " + modifyPhoneNumber);
                     mobilePhone.modifyContact(name, modifyName, phoneNumber, modifyPhoneNumber);
                     break;
                 case 9:

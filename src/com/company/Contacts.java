@@ -70,7 +70,7 @@ public class Contacts {
     public void modifyPhoneNumber(String currentPhoneNumber, String changePhoneNumber){
         int index = getIndexOfPhoneNumber(currentPhoneNumber);
         if(index >= 0){
-            this.name.set(index, changePhoneNumber);
+            this.phoneNumber.set(index, changePhoneNumber);
         } else {
             System.out.println("This phone number is not in your contacts to modify");
         }
@@ -104,12 +104,19 @@ public class Contacts {
         return index;
     }
 
-    //TODO
     public boolean onFilePhoneNumer(String phoneNumber){
-
+        int index = this.phoneNumber.indexOf(phoneNumber);
+        if(index >= 0){
+            return true;
+        }
+        return false;
     }
 
     public boolean onFileName(String name){
-
+        int index = this.phoneNumber.indexOf(name);
+        if(index >= 0){
+            return true;
+        }
+        return false;
     }
 }
