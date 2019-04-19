@@ -25,11 +25,6 @@ public class MobilePhone {
         contact.addPhoneNumber(phoneNumber);
     }
 
-    public void addContactByName(String name) {
-        contact.addName(name);
-        contact.addPhoneNumber("");
-    }
-
     public void addContactByPhoneNumber(String phoneNumber) {
         contact.addPhoneNumber(phoneNumber);
         contact.addName("");
