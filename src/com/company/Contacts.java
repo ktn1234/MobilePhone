@@ -22,12 +22,13 @@ public class Contacts {
     public void printContacts(){
         int sizeOfName = this.name.size();
         int sizeOfPhoneNumber = this.phoneNumber.size();
+        System.out.println("  \tName\t\tPhone Number");
         if(sizeOfName > 0 && sizeOfName == sizeOfPhoneNumber){
             for(int i = 0; i < name.size(); i++){
-                System.out.println((i+1) + ". " + getNameAtIndex(i) + "\t" + getPhoneNumberAtIndex(i));
+                System.out.println((i+1) + ". \t" + getNameAtIndex(i) + "\t\t" + getPhoneNumberAtIndex(i));
             }
         } else {
-            System.out.println("Something in the ArrayList is severely fucked up, fix your code");
+            //System.out.println("Something in the ArrayList is severely fucked up, fix your code");
             System.out.println("Or... There are no contacts in your mobile phone");
         }
     }
@@ -60,6 +61,15 @@ public class Contacts {
 
     public void modifyName(String currentName, String changedName){
         int index = getIndexOfName(currentName);
+        if(index >= 0){
+            this.name.set(index, changedName);
+        } else {
+            System.out.println("This name is not in your contacts to modify");
+        }
+    }
+
+    public void modifyNameWithPhoneNumber(String currentPhoneNumber, String changedName){
+        int index = getIndexOfPhoneNumber(currentPhoneNumber);
         if(index >= 0){
             this.name.set(index, changedName);
         } else {

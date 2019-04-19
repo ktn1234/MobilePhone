@@ -83,7 +83,7 @@ public class Main {
                     mobilePhone.modifyContact(name, modifyName, phoneNumber, modifyPhoneNumber);
                     break;
                 case 8:
-                    System.out.print("Please enter the name to modify: ");
+                    System.out.print("Please enter the phone number that is related to the name you want to modify: ");
                     name = scanner.nextLine();
                     System.out.print("Now enter the new name to modify: ");
                     modifyName = scanner.nextLine();

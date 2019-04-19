@@ -79,10 +79,10 @@ public class MobilePhone {
         }
     }
 
-    public void modifyContactName(String currentName, String changedName) {
-        int indexOfName = contact.getIndexOfName(currentName);
-        if (indexOfName >= 0) {
-            contact.modifyName(currentName, changedName);
+    public void modifyContactName(String currentPhoneNumber, String changedName) {
+        int indexOfPhoneNumber = contact.getIndexOfPhoneNumber(currentPhoneNumber);
+        if (indexOfPhoneNumber >= 0) {
+            contact.modifyNameWithPhoneNumber(currentPhoneNumber, changedName);
         } else {
             System.out.println("This name does not exist in your contacts");
         }
@@ -91,7 +91,7 @@ public class MobilePhone {
     public void modifyContactPhoneNumber(String currentPhoneNumber, String changedPhoneNumber) {
         int indexOfPhoneNumber = contact.getIndexOfPhoneNumber(currentPhoneNumber);
         if (indexOfPhoneNumber >= 0) {
-            contact.modifyName(currentPhoneNumber, changedPhoneNumber);
+            contact.modifyPhoneNumber(currentPhoneNumber, changedPhoneNumber);
         } else {
             System.out.println("This phone number does not exist in your contacts");
         }
