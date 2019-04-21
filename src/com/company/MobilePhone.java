@@ -97,5 +97,21 @@ public class MobilePhone {
         }
     }
 
+    public int searchContactByName(String name){
+        int index = contact.getIndexOfName(name);
+        return index;
+    }
 
+    public int searchContactByPhoneNumber(String phoneNumber){
+        int index = contact.getIndexOfPhoneNumber(phoneNumber);
+        return index;
+    }
+
+    public String getName(int index){
+        return contact.getNameAtIndex(index);
+    }
+
+    public String getPhoneNumber(int index){
+        return contact.getPhoneNumberAtIndex(index);
+    }
 }

@@ -16,13 +16,14 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
         boolean flag = false;
         System.out.println("Welcome to your mobile phone!");
         System.out.println("Enter some contacts or whatever you want...");
         MobilePhone mobilePhone = new MobilePhone();
         printInstructions();
-        while(!flag){
+        while (!flag) {
             System.out.println("Choose an option you want to do");
             String choice = scanner.nextLine();
 
@@ -30,7 +31,7 @@ public class Main {
             String phoneNumber;
             String modifyName;
             String modifyPhoneNumber;
-            switch(choice){
+            switch (choice) {
                 case "0":
                     printInstructions();
                     break;
@@ -52,7 +53,7 @@ public class Main {
                 case "4":
                     System.out.print("Please enter the name to remove: ");
                     name = scanner.nextLine();
-                    System.out.print("\nNow enter the phone number that is associated with the name to remove: ");
+                    System.out.println("\nNow enter the phone number that is associated with the name to remove: ");
                     phoneNumber = scanner.nextLine();
                     mobilePhone.removeContact(name, phoneNumber);
                     break;
@@ -69,7 +70,7 @@ public class Main {
                 case "7":
                     System.out.print("Please enter the name to modify: ");
                     name = scanner.nextLine();
-                    System.out.print("\nNow enter the phone number that is associated with the name to modify: ");
+                    System.out.println("\nNow enter the phone number that is associated with the name to modify: ");
                     phoneNumber = scanner.nextLine();
                     System.out.print("Now enter the new name to modify: ");
                     modifyName = scanner.nextLine();
@@ -82,7 +83,7 @@ public class Main {
                     mobilePhone.modifyContact(name, modifyName, phoneNumber, modifyPhoneNumber);
                     break;
                 case "8":
-                    System.out.print("Please enter the phone number that is related to the name you want to modify: ");
+                    System.out.println("Please enter the phone number that is related to the name you want to modify: ");
                     name = scanner.nextLine();
                     System.out.print("Now enter the new name to modify: ");
                     modifyName = scanner.nextLine();
@@ -96,6 +97,16 @@ public class Main {
                     mobilePhone.modifyContactPhoneNumber(phoneNumber, modifyPhoneNumber);
                     break;
                 case "10":
+                    System.out.print("Please enter the name to search for: ");
+                    name = scanner.nextLine();
+                    searchContactName(mobilePhone, name);
+                    break;
+                case "11":
+                    System.out.print("Please enter the phone number to search for: ");
+                    phoneNumber = scanner.nextLine();
+                    searchContactPhoneNumber(mobilePhone, phoneNumber);
+                    break;
+                case "12":
                     System.out.println("Exiting the console...");
                     flag = true;
                     break;
@@ -109,7 +120,7 @@ public class Main {
         System.out.println("Bye, bye...");
     }
 
-    public static void printInstructions(){
+    public static void printInstructions() {
         System.out.println("\nPress ");
         System.out.println("\t 0 - To print choice options.");
         System.out.println("\t 1 - Show your contacts");
@@ -121,8 +132,30 @@ public class Main {
         System.out.println("\t 7 - Modify contact with name and phone number");
         System.out.println("\t 8 - Modify contact with name given phone number");
         System.out.println("\t 9 - Modify contact with phone number");
-        System.out.println("\t 10 - Exit Contacts");
+        System.out.println("\t 10 - Search contact by name");
+        System.out.println("\t 11 - Search contact by phone number");
+        System.out.println("\t 12 - Exit Contacts");
+    }
 
+    public static void searchContactName(MobilePhone mobilePhone, String name) {
+        int index = mobilePhone.searchContactByName(name);
+        if (index >= 0) {
+            System.out.println("The contact name, " + name + ", is under "
+                    + mobilePhone.getPhoneNumber(index) + " on line " + (index + 1));
+        } else {
+            System.out.println("Error, contact name does not exist");
+        }
+    }
+
+    public static void searchContactPhoneNumber(MobilePhone mobilePhone, String phoneNumber) {
+        int index = mobilePhone.searchContactByPhoneNumber(phoneNumber);
+        if (index >= 0) {
+            System.out.println("The contact phone number, "
+                    + phoneNumber + ", is under " + mobilePhone.getName(index) +
+                    " on line " + (index + 1));
+        } else {
+            System.out.println("Error, contact phone number does not exist");
+        }
     }
 
 }

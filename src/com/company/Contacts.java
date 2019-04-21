@@ -144,19 +144,20 @@ public class Contacts {
         return index;
     }
 
-    public boolean onFilePhoneNumer(String phoneNumber){
-        int index = this.phoneNumber.indexOf(phoneNumber);
-        if(index >= 0){
-            return true;
-        }
-        return false;
-    }
 
-    public boolean onFileName(String name){
-        int index = this.phoneNumber.indexOf(name);
-        if(index >= 0){
-            return true;
-        }
-        return false;
-    }
+//    public boolean onFilePhoneNumer(String phoneNumber){
+//        int index = this.phoneNumber.indexOf(phoneNumber);
+//        if(index >= 0){
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    public boolean onFileName(String name){
+//        int index = this.phoneNumber.indexOf(name);
+//        if(index >= 0){
+//            return true;
+//        }
+//        return false;
+//    }
 }
