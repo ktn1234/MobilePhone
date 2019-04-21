@@ -99,12 +99,12 @@ public class Main {
                 case "10":
                     System.out.print("Please enter the name to search for: ");
                     name = scanner.nextLine();
-                    searchContactName(mobilePhone, name);
+                    mobilePhone.searchContactByName(name);
                     break;
                 case "11":
                     System.out.print("Please enter the phone number to search for: ");
                     phoneNumber = scanner.nextLine();
-                    searchContactPhoneNumber(mobilePhone, phoneNumber);
+                    mobilePhone.searchContactByPhoneNumber(phoneNumber);
                     break;
                 case "12":
                     System.out.println("Exiting the console...");
@@ -135,27 +135,6 @@ public class Main {
         System.out.println("\t 10 - Search contact by name");
         System.out.println("\t 11 - Search contact by phone number");
         System.out.println("\t 12 - Exit Contacts");
-    }
-
-    public static void searchContactName(MobilePhone mobilePhone, String name) {
-        int index = mobilePhone.searchContactByName(name);
-        if (index >= 0) {
-            System.out.println("The contact name, " + name + ", is under "
-                    + mobilePhone.getPhoneNumber(index) + " on line " + (index + 1));
-        } else {
-            System.out.println("Error, contact name does not exist");
-        }
-    }
-
-    public static void searchContactPhoneNumber(MobilePhone mobilePhone, String phoneNumber) {
-        int index = mobilePhone.searchContactByPhoneNumber(phoneNumber);
-        if (index >= 0) {
-            System.out.println("The contact phone number, "
-                    + phoneNumber + ", is under " + mobilePhone.getName(index) +
-                    " on line " + (index + 1));
-        } else {
-            System.out.println("Error, contact phone number does not exist");
-        }
     }
 
 }

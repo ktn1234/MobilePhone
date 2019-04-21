@@ -99,19 +99,32 @@ public class MobilePhone {
 
     public int searchContactByName(String name){
         int index = contact.getIndexOfName(name);
+        if (index >= 0) {
+            System.out.println("The contact name, " + name + ", is under "
+                    + getPhoneNumber(index) + " on line " + (index + 1));
+        } else {
+            System.out.println("Error, contact name does not exist");
+        }
         return index;
     }
 
     public int searchContactByPhoneNumber(String phoneNumber){
         int index = contact.getIndexOfPhoneNumber(phoneNumber);
+        if (index >= 0) {
+            System.out.println("The contact phone number, "
+                    + phoneNumber + ", is under " + getName(index) +
+                    " on line " + (index + 1));
+        } else {
+            System.out.println("Error, contact phone number does not exist");
+        }
         return index;
     }
 
-    public String getName(int index){
+    private String getName(int index){
         return contact.getNameAtIndex(index);
     }
 
-    public String getPhoneNumber(int index){
+    private String getPhoneNumber(int index){
         return contact.getPhoneNumberAtIndex(index);
     }
 }
