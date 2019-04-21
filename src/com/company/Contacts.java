@@ -22,15 +22,45 @@ public class Contacts {
     public void printContacts(){
         int sizeOfName = this.name.size();
         int sizeOfPhoneNumber = this.phoneNumber.size();
-        System.out.println("  \tName\t\tPhone Number");
+
         if(sizeOfName > 0 && sizeOfName == sizeOfPhoneNumber){
-            for(int i = 0; i < name.size(); i++){
-                System.out.println((i+1) + ". \t" + getNameAtIndex(i) + "\t\t" + getPhoneNumberAtIndex(i));
+            int nameLen = findLongestName();
+            if (nameLen < 4) {
+                nameLen = 4;
+            }
+            nameLen += 3;
+            System.out.print(padWithSpace("   Name", nameLen));
+            System.out.print("   Phone Number\n");
+                for(int i = 0; i < name.size(); i++){
+                System.out.print((i + 1) + ". ");
+                System.out.print(padWithSpace(name.get(i), nameLen));
+                System.out.print(phoneNumber.get(i) + '\n');
             }
         } else {
             //System.out.println("Something in the ArrayList is severely fucked up, fix your code");
-            System.out.println("Or... There are no contacts in your mobile phone");
+            System.out.println("There are no contacts in your mobile phone");
         }
+    }
+
+    private int findLongestName(){
+        int len = -1;
+        for (String n : name) {
+            if (n.length() > len) {
+                len = n.length();
+            }
+        }
+        return len;
+    }
+
+    private String padWithSpace(String s, int len) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(s);
+        int currLen = s.length();
+        while (currLen < len) {
+            sb.append(" ");
+            currLen++;
+        }
+        return sb.toString();
     }
 
     public void addName(String name){

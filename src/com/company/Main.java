@@ -24,50 +24,49 @@ public class Main {
         printInstructions();
         while(!flag){
             System.out.println("Choose an option you want to do");
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            String choice = scanner.nextLine();
 
             String name;
             String phoneNumber;
             String modifyName;
             String modifyPhoneNumber;
             switch(choice){
-                case 0:
+                case "0":
                     printInstructions();
                     break;
-                case 1:
+                case "1":
                     mobilePhone.printContacts();
                     break;
-                case 2:
+                case "2":
                     System.out.print("Please enter a name for your contact: ");
                     name = scanner.nextLine();
                     System.out.print("Please enter a phone number for your contact: ");
                     phoneNumber = scanner.nextLine();
                     mobilePhone.addContact(name, phoneNumber);
                     break;
-                case 3:
+                case "3":
                     System.out.print("Please enter a phone number for your contact: ");
                     phoneNumber = scanner.nextLine();
                     mobilePhone.addContactByPhoneNumber(phoneNumber);
                     break;
-                case 4:
+                case "4":
                     System.out.print("Please enter the name to remove: ");
                     name = scanner.nextLine();
                     System.out.print("\nNow enter the phone number that is associated with the name to remove: ");
                     phoneNumber = scanner.nextLine();
                     mobilePhone.removeContact(name, phoneNumber);
                     break;
-                case 5:
+                case "5":
                     System.out.print("Please enter the name to remove: ");
                     name = scanner.nextLine();
                     mobilePhone.removeContactByName(name);
                     break;
-                case 6:
+                case "6":
                     System.out.print("Please enter the phone number to remove: ");
                     phoneNumber = scanner.nextLine();
                     mobilePhone.removeContactByPhoneNumber(phoneNumber);
                     break;
-                case 7:
+                case "7":
                     System.out.print("Please enter the name to modify: ");
                     name = scanner.nextLine();
                     System.out.print("\nNow enter the phone number that is associated with the name to modify: ");
@@ -82,21 +81,21 @@ public class Main {
 //                    System.out.println("changed phone number: " + modifyPhoneNumber);
                     mobilePhone.modifyContact(name, modifyName, phoneNumber, modifyPhoneNumber);
                     break;
-                case 8:
+                case "8":
                     System.out.print("Please enter the phone number that is related to the name you want to modify: ");
                     name = scanner.nextLine();
                     System.out.print("Now enter the new name to modify: ");
                     modifyName = scanner.nextLine();
                     mobilePhone.modifyContactName(name, modifyName);
                     break;
-                case 9:
+                case "9":
                     System.out.print("Please enter the phone number to modify: ");
                     phoneNumber = scanner.nextLine();
                     System.out.print("Now enter the new phone number to modify: ");
                     modifyPhoneNumber = scanner.nextLine();
                     mobilePhone.modifyContactPhoneNumber(phoneNumber, modifyPhoneNumber);
                     break;
-                case 10:
+                case "10":
                     System.out.println("Exiting the console...");
                     flag = true;
                     break;
@@ -120,7 +119,7 @@ public class Main {
         System.out.println("\t 5 - Remove contact with name");
         System.out.println("\t 6 - Remove contact with phone number");
         System.out.println("\t 7 - Modify contact with name and phone number");
-        System.out.println("\t 8 - Modify contact with name");
+        System.out.println("\t 8 - Modify contact with name given phone number");
         System.out.println("\t 9 - Modify contact with phone number");
         System.out.println("\t 10 - Exit Contacts");
 
